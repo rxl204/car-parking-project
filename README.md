@@ -26,13 +26,13 @@ This project aims to improve car parking planning and management by providing de
 
 1. Clone the repository:
     ```
-    git clone https://github.com/username/projectname.git
+    git clone https://github.com/rxl204/car-parking-project.git
     ```
 2. Navigate to the project directory:
     ```
-    cd projectname
+    cd car-parking-project
     ```
-3. Install Gcloud CLI. For detailed steps see: [Google Cloud SDK Documentation](https://cloud.google.com/sdk/docs/install)
+3. Install gcloud CLI. For detailed steps see: [Google Cloud SDK Documentation](https://cloud.google.com/sdk/docs/install)
 
 #### Set up Google Cloud Permissions:
 
