@@ -39,12 +39,11 @@ This project aims to improve car parking planning and management by providing de
 1. Set up permissions for the service account, download the JSON credential file
 2. Set GOOGLE_APPLICATION_CREDENTIALS to point to the JSON credential file
 
-#### Deploying Mage pipeline using Terraform and Google Cloud:
+#### Deploying Mage pipeline to Google Cloud using Terraform:
 
 To reproduce the steps, you'll need to install Terraform. For detailed steps see: [Using Terraform with Mage](https://docs.mage.ai/production/deploying-to-cloud/using-terraform)
 
 Before running any Terraform commands for deployment, change the default value of the `project_id` variable in `./gcp/variables.tf`:
-
     ```
     terraform
     variable "project_id" {
@@ -52,36 +51,38 @@ Before running any Terraform commands for deployment, change the default value o
         description = "The name of the project"
         default     = "unique-gcp-project-id"
     }
-    
     ```
 
 To prepare your working directory for other commands, run:
-
     ```
     terraform init
     ```
 
 To show changes required by the current configuration, run:
-
     ```
     terraform plan
     ```
 
 To create or update infrastructure, run:
-
     ```
     terraform apply
     ```
 
 To destroy previously-created infrastructure, run:
-
     ```
     terraform destroy
     ```
-    
+
+### Run Mage on Google Cloud
+The pipeline has two parts:
+1. Pull car parking data from API, transform and load to data lake (scheduled a trigger at 15 minutes interval, use cron '*/15 * * * *')
+2. Pull data from GCS, transform and load to BigQuery data warehouse (scheduled a trigger on a daily basis)
+
+
 ### Looker Studio Dashboard
 A sample dashboard showing a subset of data extracted using the data pipeline
 ![Car Parking Dashboard](https://github.com/rxl204/car-parking-project/blob/main/looker_studio.png)
+https://lookerstudio.google.com/s/kzuK_HM4K38
 
 ### Contributing
 
