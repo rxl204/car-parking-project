@@ -44,35 +44,43 @@ This project aims to improve car parking planning and management by providing de
 To reproduce the steps, you'll need to install Terraform. For detailed steps see: [Using Terraform with Mage](https://docs.mage.ai/production/deploying-to-cloud/using-terraform)
 
 Before running any Terraform commands for deployment, change the default value of the `project_id` variable in `./gcp/variables.tf`:
-    ```terraform
+
+    ```
+    terraform
     variable "project_id" {
         type        = string
         description = "The name of the project"
         default     = "unique-gcp-project-id"
     }
+    
     ```
 
 To prepare your working directory for other commands, run:
+
     ```
     terraform init
     ```
 
 To show changes required by the current configuration, run:
+
     ```
     terraform plan
     ```
 
 To create or update infrastructure, run:
+
     ```
     terraform apply
     ```
 
 To destroy previously-created infrastructure, run:
+
     ```
     terraform destroy
     ```
     
 ### Looker Studio Dashboard
+A sample dashboard showing a subset of data extracted using the data pipeline
 ![Car Parking Dashboard](https://github.com/rxl204/car-parking-project/blob/main/looker_studio.png)
 
 ### Contributing
