@@ -66,20 +66,22 @@ To show changes required by the current configuration, run:
 
 To create or update infrastructure, run:
     ```
-    # This step will take a few minutes
     terraform apply
     ```
+Note: This step will take a few minutes. Once ready, navigate to Cloud Run.
+- Select the 'Networking' tab, modify Ingress control to 'All' temporarily
+- Navigate to the url like  https://mage-data-prep-xxxx-wl.a.run.app
 
-To destroy previously-created infrastructure, run:
+### Run Mage on Google Cloud
+Import pipeline zip files into Mage environment that is running. The pipeline has two parts:
+1. Pull car parking data from API, transform and load to data lake (scheduled a trigger at 15 minutes interval, use cron '*/15 * * * *')
+2. Pull data from GCS, transform and load to BigQuery data warehouse (scheduled a trigger on a daily basis)
+The pipeline has been designed to pull live data. For testing purposes, you may select 'Run@once' to get a sample of the live data.
+
+Finally, to destroy previously-created infrastructure, run:
     ```
     terraform destroy
     ```
-
-### Run Mage on Google Cloud
-The pipeline has two parts:
-1. Pull car parking data from API, transform and load to data lake (scheduled a trigger at 15 minutes interval, use cron '*/15 * * * *')
-2. Pull data from GCS, transform and load to BigQuery data warehouse (scheduled a trigger on a daily basis)
-
 
 ### Looker Studio Dashboard
 A sample dashboard showing a subset of data extracted using the data pipeline
