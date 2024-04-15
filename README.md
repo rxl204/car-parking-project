@@ -43,7 +43,8 @@ This project aims to improve car parking planning and management by providing de
 
 To reproduce the steps, you'll need to install Terraform. For detailed steps see: [Using Terraform with Mage](https://docs.mage.ai/production/deploying-to-cloud/using-terraform)
 
-Before running any Terraform commands for deployment, change the default value of the `project_id` variable in `./gcp/variables.tf`:
+You may choose to work within the mage-ai-terraform-templates directory, navigate to gcp. Before running any Terraform commands for deployment, change the default value of the `project_id` variable in `./gcp/variables.tf`:
+
     ```
     terraform
     variable "project_id" {
@@ -65,6 +66,7 @@ To show changes required by the current configuration, run:
 
 To create or update infrastructure, run:
     ```
+    # This step will take a few minutes
     terraform apply
     ```
 
